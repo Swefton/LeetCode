@@ -12,20 +12,14 @@ public:
         vector<string> result(score.size());
 
         for (int i = 0; i < placement.size(); ++i) {
-
-            switch (i){
-                case 0:
-                    result[placement[i].second] = "Gold Medal";
-                    break;
-                case 1:
-                    result[placement[i].second] = "Silver Medal";
-                    break;
-                case 2:
-                    result[placement[i].second] = "Bronze Medal";
-                    break;
-                default:
-                    result[placement[i].second] = to_string(i + 1);
-            }                
+            if (i == 0)
+                result[placement[i].second] = "Gold Medal";
+            else if (i == 1)
+                result[placement[i].second] = "Silver Medal";
+            else if (i == 2)
+                result[placement[i].second] = "Bronze Medal";
+            else
+                result[placement[i].second] = to_string(i + 1);
         }
 
         return result;
