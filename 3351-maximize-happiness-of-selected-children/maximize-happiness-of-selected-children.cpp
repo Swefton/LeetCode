@@ -1,37 +1,17 @@
 class Solution {
 public:
     long long maximumHappinessSum(vector<int>& happiness, int k) {
-        priority_queue<int, vector<int>, greater<int>> minHeap;
-
-        for (int num : happiness) {
-            if (minHeap.size() < k) {
-                minHeap.push(num);
-            } else {
-                if (num > minHeap.top()) {
-                    minHeap.pop();
-                    minHeap.push(num);
-                }
-            }
-        }
-
-        stack<int> reversed;
-        while (!minHeap.empty()){
-            reversed.push(minHeap.top());
-            minHeap.pop();
-        }
-
-        int count = 0;
+        sort(happiness.begin(), happiness.end(), greater<int>());
+        
         long long result = 0;
-
-        while (!reversed.empty()){
-            result += reversed.top() - (count++);
-            reversed.pop();
-            if (reversed.empty() || (reversed.top() - count) <= 0) break; 
+        int count = 0;
+        
+        for(int i = 0; i < k; i++) {
+            result += max(happiness[i] - count, 0);
+            if (happiness[i] - count <= 0) break;
+            count++; 
         }
-
+        
         return result;
-
-        
-        
     }
 };
