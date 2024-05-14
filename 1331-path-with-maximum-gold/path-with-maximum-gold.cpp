@@ -21,7 +21,7 @@ public:
         int maxGold = 0;
         for (int y = 0; y < grid.size(); ++y) {
             for (int x = 0; x < grid[0].size(); ++x) {
-                maxGold = std::max(maxGold, getMaximumHelper(grid, x, y));
+                maxGold = max(maxGold, getMaximumHelper(grid, x, y));
             }
         }
         return maxGold;
