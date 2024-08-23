@@ -30,7 +30,30 @@ These are my leetcode solutions.
 
 ## Unsolved Questions
 
-Currently all attempted questions have been solved 😊.
+### Problem 1: [Strange Printer](https://leetcode.com/problems/strange-printer/description/)
+
+**Description:**
+
+You are given a string `s` and a strange printer that operates with the following two special properties:
+
+1. The printer can only print a sequence of the same character at a time.
+2. In each turn, the printer can start printing new characters at any position in the string and will overwrite the existing characters.
+
+Your task is to return the minimum number of turns the printer needs to print the entire string `s`.
+
+**Examples:**
+
+- **Example 1:**
+  - **Input:** `s = "aaabbb"`
+  - **Output:** `2`
+  - **Explanation:** Print `"aaa"` first, then print `"bbb"`.
+
+- **Example 2:**
+  - **Input:** `s = "aba"`
+  - **Output:** `2`
+  - **Explanation:** Print `"aaa"` first, then print `"b"` at the second position, which will overwrite the existing character `'a'`.
+
+
 
 <!--
 
