@@ -36,3 +36,10 @@ public:
         return 0.0;
     }
 };
+
+const int ZERO = []()
+{
+std::ios_base::sync_with_stdio(false);
+std::cin.tie(nullptr);
+return 0;
+}();
