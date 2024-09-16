@@ -6,7 +6,7 @@ public:
 
         for (auto& number : operations)
         {
-            if (number.front() == '-' || number.back() == '-')
+            if (number[1] == '-')
             {
                 finalValue--;
             }
