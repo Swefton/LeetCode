@@ -2,22 +2,25 @@ class Solution {
 public:
     int minimumLength(string s) {
         int sum = 0;
-        unordered_map<char, int> char_counter;
+        vector<int> char_counter(26, 0);
 
         for (auto i : s)
         {
-            char_counter[i]++;
+            char_counter[i - 'a']++;
         }
 
-        for (auto& it : char_counter)
+        for (auto count : char_counter)
         {
-            if (it.second % 2 == 0)
+            if (count != 0)
             {
-                sum += 2;
-            }
-            else
-            {
-                sum += 1;
+                if (count % 2 == 0)
+                {
+                    sum += 2;
+                }
+                else
+                {
+                    sum += 1;
+                }
             }
         }
 
