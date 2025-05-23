@@ -5,13 +5,11 @@ class Solution:
         """
         displacement = k % len(nums)
 
-        rotated_elements = nums[-displacement:]
-
-        del nums[-displacement:]
         
-        nums[:0] = rotated_elements
-
-
+        if displacement != 0:
+            nums[:0] = nums[-displacement:]
+            del nums[-displacement:]
+        
 
         return
         
