@@ -13,7 +13,6 @@ class LRUCache:
                 del self.queue[self.queue.index(key)]
             self.queue.append(key)
 
-
             return self.cache[key]
 
         return -1
