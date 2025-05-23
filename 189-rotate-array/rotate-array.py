@@ -7,7 +7,8 @@ class Solution:
 
         
         if displacement != 0:
-            nums[:displacement], nums[displacement:] = nums[-displacement:], nums[:-displacement]
+            nums[:0] = nums[-displacement:]
+            del nums[-displacement:]
         
 
         return
