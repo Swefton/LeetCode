@@ -30,7 +30,5 @@ class Solution:
                            
             place -= 1
 
-
-
         return numeral
         
