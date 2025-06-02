@@ -6,7 +6,6 @@
 #         self.right = right
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-        
         queue = deque([root]) if root else deque()
 
         while queue:
@@ -16,6 +15,4 @@ class Solution:
             
             item.left, item.right = item.right, item.left
 
-
         return root
-        
