@@ -20,10 +20,9 @@ class Solution:
             index += 1
 
         string_list.append(s[start:]) if start != None else None
-        string_list.reverse()
 
-        for i in range(len(string_list)):
-            result += string_list[i] + (" " if i != len(string_list) - 1 else "")
+        for i in range(len(string_list)-1, -1 , -1):
+            result += string_list[i] + (" " if i != 0 else "")
         
         return result
         
