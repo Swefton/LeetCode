@@ -3,19 +3,15 @@ class Solution:
         if numRows == 1:
             return s
 
-        result = ""
-        lists = [[] for _ in range(numRows)]
+        lists = ["" for _ in range(numRows)]
 
         count = 0
         down = True
 
         for letter in s:
-            lists[count].append(letter)
+            lists[count] += letter
 
-            if down:
-                count += 1
-            else:
-                count -= 1
+            count += 1 if down else -1
 
             if count == numRows:
                 count = numRows - 2
@@ -24,8 +20,4 @@ class Solution:
                 count = 1
                 down = True
 
-        
-        for i in lists:
-            result += "".join(i)
-
-        return result
+        return "".join(lists)
