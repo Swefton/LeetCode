@@ -1,4 +1,4 @@
 class Solution:
     def doesAliceWin(self, s: str) -> bool:
-        return len([char for char in s if char in 'aeiou']) > 0
+        return sum([s.count(c) for c in 'aeiou']) > 0
         
