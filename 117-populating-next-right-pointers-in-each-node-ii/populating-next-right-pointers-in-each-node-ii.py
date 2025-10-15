@@ -18,14 +18,8 @@ class Solution:
             for i in range(len(queue)-1):
                 queue[i].next = queue[i+1]
             
-            next_level = list()
             
-            for node in queue:
-                if node.left:
-                    next_level.append(node.left)
-                if node.right:
-                    next_level.append(node.right)
-            
-            queue = next_level
+            queue = temp = [child for node in queue for child in (node.left, node.right) if child]
+
 
         return head
