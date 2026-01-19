@@ -13,4 +13,4 @@ class Solution:
             return root.val == targetSum
 
         remaining = targetSum - root.val
-        return (self.hasPathSum(root.left, remaining) or self.hasPathSum(root.right, remaining))
+        return self.hasPathSum(root.left, remaining) or self.hasPathSum(root.right, remaining)
