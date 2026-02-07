@@ -30,8 +30,6 @@ class Solution:
             for row in range(rows):
                 bfs(row,col)
         
-        print(dont_change)
-        
         for row in range(rows):
             for col in range(cols):
                 if board[row][col] == "O" and (row, col) not in dont_change:
