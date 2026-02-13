@@ -1,29 +1,23 @@
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        graph = defaultdict(list)
-        for a, b in prerequisites:
-            graph[b].append(a)
+        adj = defaultdict(list)
+        in_degree = [0] * numCourses
         
-        visited = set()
-        path = set()
-
-        def topo_sort(node):
-            if node in path:
-                return True
-            if node in visited:
-                return False
+        for dest, src in prerequisites:
+            adj[src].append(dest)
+            in_degree[dest] += 1
             
-            path.add(node)
-            for connection in graph[node]:
-                if topo_sort(connection):
-                    return True
-            
-            path.remove(node)
-            visited.add(node)
-            return False
+        queue = deque([i for i in range(numCourses) if in_degree[i] == 0])
         
-        for i in range(numCourses):
-            if topo_sort(i):
-                return False
-
-        return True
+        courses_taken = 0
+        
+        while queue:
+            current = queue.popleft()
+            courses_taken += 1
+            
+            for neighbor in adj[current]:
+                in_degree[neighbor] -= 1
+                if in_degree[neighbor] == 0:
+                    queue.append(neighbor)
+                    
+        return courses_taken == numCourses
