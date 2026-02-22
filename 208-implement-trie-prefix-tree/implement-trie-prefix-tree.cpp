@@ -1,4 +1,19 @@
 class Trie {
+private:
+    Trie* wordSearch(string word) {
+        Trie* currentNode = this;
+
+        for (auto character : word) {
+            int index = character - 'a';
+            if (currentNode->children && currentNode->children[index]) {
+                currentNode = currentNode->children[index];
+            } else {
+                return nullptr;
+            }
+        }
+
+        return currentNode;
+    }
 public:
     static const int ALPHABET_SIZE = 'z'-'a'+1;
 
@@ -27,34 +42,13 @@ public:
     }
     
     bool search(string word) {
-        Trie* currentNode = this;
-
-        for (auto character : word) {
-            int index = character - 'a';
-            if (currentNode->children && currentNode->children[index]) {
-                currentNode = currentNode->children[index];
-            } else {
-                return false;
-            }
-        }
-
-        return currentNode->isLeaf ? true : false;
+        auto leaf = wordSearch(word);
+        return (leaf && leaf->isLeaf) ? true : false;
     }
     
     bool startsWith(string prefix) {
-
-        Trie* currentNode = this;
-
-        for (auto character : prefix) {
-            int index = character - 'a';
-            if (currentNode->children && currentNode->children[index]) {
-                currentNode = currentNode->children[index];
-            } else {
-                return false;
-            }
-        }
-
-        return true;
+        auto leaf = wordSearch(prefix);
+        return !(leaf == nullptr);
     }
 };
 
