@@ -1,5 +1,8 @@
 class WordDictionary {
 private:
+    struct Node;
+    Node* root;
+
     struct Node {
         Node* children[26];
         bool isEndOfWord;
@@ -11,8 +14,6 @@ private:
             }
         }
     };
-
-    Node* root;
 
     bool dfs(const string& word, int index, Node* curr) {
             if (index == word.length()) {
