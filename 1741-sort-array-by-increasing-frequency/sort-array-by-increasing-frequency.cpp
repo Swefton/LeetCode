@@ -1,19 +1,15 @@
 class Solution {
 public:
     vector<int> frequencySort(vector<int>& nums) {
-        map<int,int> numCounter;
-    
-        for (auto i : nums) {
-            numCounter[i]++;
+        vector<int> count(201, 0);
+        for (int num : nums) {
+            count[num + 100]++;
         }
-
         sort(nums.begin(), nums.end(), [&](int a, int b) {
-            if (numCounter[a] != numCounter[b]) {
-                return numCounter[a] < numCounter[b];
-            }
-            return a > b; 
+            if (count[a + 100] == count[b + 100])
+                return a > b;
+            return count[a + 100] < count[b + 100];
         });
-
         return nums;
     }
 };
