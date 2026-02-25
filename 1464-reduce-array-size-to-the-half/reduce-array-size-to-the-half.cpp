@@ -17,7 +17,6 @@ public:
 
         int sum{0}, setCount{0};
         for (auto &pair : pairs) {
-            cout << pair.first << " " << pair.second << '\n';
             sum+=pair.second;
             setCount++;
             if (sum >= arr.size()/2) {
