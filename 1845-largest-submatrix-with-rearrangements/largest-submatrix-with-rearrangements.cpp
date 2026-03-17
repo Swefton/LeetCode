@@ -12,6 +12,7 @@ public:
                         prevHeights[j] = matrix[i][j] ? prevHeights[j] + 1 : 0;
                     }
                 }
+                
                 auto temp = prevHeights;
                 ranges::sort(temp, std::greater{});
 
