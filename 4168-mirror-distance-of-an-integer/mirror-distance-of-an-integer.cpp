@@ -9,6 +9,6 @@ public:
             reverse *= copy ? 10 : 1;
         }
 
-        return abs((long)n - (long)(reverse));
+        return abs(n - reverse);
     }
 };
